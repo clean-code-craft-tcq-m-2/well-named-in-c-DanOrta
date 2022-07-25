@@ -1,1 +1,9 @@
 testchecker
+# Map file only used for internal purposes
+*.map
+# In the case an output file (*.o) is generated, it should be ignored
+*.o
+# Ignore executables
+*.exe
+# Ignore the Makefile
+Makefile
