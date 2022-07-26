@@ -4,18 +4,13 @@
 
 const char* MajorColorNames[] = { "White", "Red", "Black", "Yellow", "Violet" };
 const char* MinorColorNames[] = { "Blue", "Orange", "Green", "Brown", "Slate" };
-
 int numberOfMajorColors = sizeof(MajorColorNames) / sizeof(MajorColorNames[0]);
 const int MAX_COLORPAIR_NAME_CHARS = 16;
 int numberOfMinorColors = sizeof(MinorColorNames) / sizeof(MinorColorNames[0]);
 
-void ColorPairToString(const ColorPair* colorPair, char* buffer)
-{
-    sprintf(buffer, "%s %s", MajorColorNames[colorPair->majorColor], MinorColorNames[colorPair->minorColor]);
-}
+void ColorPairToString(const ColorPair* colorPair, char* buffer) { sprintf(buffer, "%s %s", MajorColorNames[colorPair->majorColor], MinorColorNames[colorPair->minorColor]); }
 
-ColorPair GetColorFromPairNumber(int pairNumber)
-{
+ColorPair GetColorFromPairNumber(int pairNumber) {
     ColorPair colorPair;
     int zeroBasedPairNumber = pairNumber - 1;
     colorPair.majorColor = (enum MajorColor)(zeroBasedPairNumber / numberOfMinorColors);
@@ -23,13 +18,9 @@ ColorPair GetColorFromPairNumber(int pairNumber)
     return colorPair;
 }
 
-int GetPairNumberFromColor(const ColorPair* colorPair)
-{
-    return ((colorPair->majorColor * numberOfMinorColors) + (colorPair->minorColor + 1));
-}
+int GetPairNumberFromColor(const ColorPair* colorPair) { return ((colorPair->majorColor * numberOfMinorColors) + (colorPair->minorColor + 1)); }
 
-void testNumberToPair(int pairNumber, enum MajorColor expectedMajor, enum MinorColor expectedMinor)
-{
+void testNumberToPair(int pairNumber, enum MajorColor expectedMajor, enum MinorColor expectedMinor) {
     ColorPair colorPair = GetColorFromPairNumber(pairNumber);
     char colorPairNames[MAX_COLORPAIR_NAME_CHARS];
     ColorPairToString(&colorPair, colorPairNames);
@@ -38,8 +29,7 @@ void testNumberToPair(int pairNumber, enum MajorColor expectedMajor, enum MinorC
     assert(colorPair.minorColor == expectedMinor);
 }
 
-void testPairToNumber(enum MajorColor major, enum MinorColor minor, int expectedPairNumber)
-{
+void testPairToNumber(enum MajorColor major, enum MinorColor minor, int expectedPairNumber) {
     ColorPair colorPair;
     colorPair.majorColor = major;
     colorPair.minorColor = minor;
@@ -48,13 +38,10 @@ void testPairToNumber(enum MajorColor major, enum MinorColor minor, int expected
     assert(pairNumber == expectedPairNumber);
 }
 
-void printAllPairColor(void)
-{
+void printAllPairColor(void) {
     int counter = 1;
-    for(int i = 0; i < 5; i++)
-    {
-        for(int j = 0; j < 5; j++)
-        {
+    for(int i = 0; i < 5; i++) {
+        for(int j = 0; j < 5; j++) {
             printf("%02d. %s, %s\n", counter, MajorColorNames[i], MinorColorNames[j]);
             counter++;
         }
