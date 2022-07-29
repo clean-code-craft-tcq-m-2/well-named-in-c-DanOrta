@@ -7,3 +7,5 @@ testchecker
 *.exe
 # Ignore the Makefile
 Makefile
+# Ignore the vscode folder and the files inside of it
+.vscode/*
