@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <assert.h>
+#include "pair_color_code.h"
 #include "test_functions.h"
 
 void testNumberToPair(int pairNumber, enum MajorColor expectedMajor, enum MinorColor expectedMinor)
@@ -17,10 +18,10 @@ void testNumberToPair(int pairNumber, enum MajorColor expectedMajor, enum MinorC
 void testPairToNumber(enum MajorColor major, enum MinorColor minor, int expectedPairNumber)
 {
     ColorPair colorPair;
-    int pairNumber = GetPairNumberFromColor(&colorPair);
 
     colorPair.majorColor = major;
     colorPair.minorColor = minor;
+    int pairNumber = GetPairNumberFromColor(&colorPair);
 
     (void)printf("Got pair number %d\n", pairNumber);
 
