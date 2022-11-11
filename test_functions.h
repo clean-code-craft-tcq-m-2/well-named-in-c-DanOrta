@@ -1,5 +1,5 @@
-#ifndef __TEST_FUNCTIONS_C__
-#define __TEST_FUNCTIONS_C__
+#ifndef __TEST_FUNCTIONS_H__
+#define __TEST_FUNCTIONS_H__
 
 #include "pair_color_code.h"
 

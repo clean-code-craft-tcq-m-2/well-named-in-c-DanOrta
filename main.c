@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "pair_color_code.h"
 #include "test_functions.h"
-#include "custom_functions.h"
+#include "print_manual.h"
 
 int main(void) {
     testNumberToPair(4, WHITE, BROWN);
